@@ -30,12 +30,13 @@ public class Questions extends BaseModel{
     private List<String> topicTags = new ArrayList<>();
 
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "question",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private List<Answers> answers = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Users user;
+    @JoinColumn(name ="users_id",nullable = false )
+    private Users users;
 
 
 

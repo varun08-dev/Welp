@@ -23,14 +23,14 @@ public class Answers extends BaseModel{
     private String answer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "question_id", nullable = false)
     private Questions question;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    @JoinColumn(name = "users_id", nullable = false)
+    private Users users;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "answer",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     List<Comments> comments = new ArrayList<>();
 

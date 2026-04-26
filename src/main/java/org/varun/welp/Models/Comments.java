@@ -1,10 +1,7 @@
 package org.varun.welp.Models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -22,14 +19,16 @@ public class Comments extends BaseModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
-    private Answers answers;
+    @JoinColumn(name = "answer_id",nullable = false)
+    private Answers answer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private Comments parentComment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
+    @JoinColumn(name = "users_id" , nullable = false)
     private Users users;
 
 

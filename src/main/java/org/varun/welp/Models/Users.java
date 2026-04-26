@@ -26,19 +26,19 @@ public class Users extends BaseModel{
     @Column
     protected String bio;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     List<Questions> questions= new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     List<Answers> answers = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
     List<Comments> comments= new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     List<Likes> likes = new ArrayList<>();
 }

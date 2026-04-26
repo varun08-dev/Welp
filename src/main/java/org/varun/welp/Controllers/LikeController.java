@@ -11,7 +11,10 @@ import java.util.UUID;
 @RestController
 public class LikeController {
 
-    @PostMapping("/{type}/{id}/likes")
-    public ResponseEntity<Likes> postLike(@PathVariable("type") Enum type,
-                                          @PathVariable("id")UUID id,)
+//    @PostMapping("/{type}/{id}/likes")
+//    public ResponseEntity<Likes> postLike(@PathVariable("type") Enum type,
+//                                          @PathVariable("id")UUID id){
+//
+//
+//    }
 }
