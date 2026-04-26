@@ -28,7 +28,7 @@ public class CommentController {
         Answers answers= answersRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Answer not found"));
 
-        comments.setAnswers(answers);
+        comments.setAnswer(answers);
         comments.setParentComment(null);
 
         Comments saved= commentRepository.save(comments);
