@@ -37,4 +37,8 @@ public class Users extends BaseModel{
     @OneToMany(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
     List<Comments> comments= new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
+    List<Likes> likes = new ArrayList<>();
 }
