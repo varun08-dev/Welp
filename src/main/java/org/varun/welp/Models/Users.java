@@ -11,7 +11,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,4 +33,8 @@ public class Users extends BaseModel{
     @OneToMany(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     List<Answers> answers = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SELECT)
+    List<Comments> comments= new ArrayList<>();
 }
